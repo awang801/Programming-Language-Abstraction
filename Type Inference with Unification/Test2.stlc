@@ -1,0 +1,2 @@
+-- VInt 49
+case Inl 7 of Inl a -> a * a | Inr b -> if b then 0 else 1
