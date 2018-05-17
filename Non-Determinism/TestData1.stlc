@@ -1,0 +1,7 @@
+-- VPair (VInt 2) (VInt 7), VPair (VInt 2) (VInt 8)
+data Tuple = Tuple Int Int in
+let r = \ x : Int -> if isz (x - 2) then 2 or 3 else fail[Int] in
+let s = \ x : Int -> if isz (x - 3) then 7 or 8 else fail[Int] in
+let compose = \ r : (Int -> Int) -> \ s : (Int -> Int) -> \ x : Int -> s (r x) in
+let tuple = \ f : (Int -> Int) -> \ x : Int -> Tuple x (f x) in
+tuple (compose r s) (2 or 3 or 7 or 8)

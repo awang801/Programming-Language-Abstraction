@@ -1,0 +1,8 @@
+-- VInt 3, VInt 1
+let even = fix (\even : (Int -> Bool) -> \n : Int ->
+                  if isz n then True
+                  else if isz (n - 1) then False
+                  else even (n - 2)) in
+let onlyOdd = \ n : Int -> if even n then fail[Int] else n in
+let downFrom = fix (\downFrom : (Int -> Int) -> \ n : Int -> if isz n then n else n or downFrom (n - 1)) in
+onlyOdd (downFrom 4)
